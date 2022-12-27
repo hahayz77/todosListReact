@@ -22,3 +22,7 @@ html{
     background-attachment: fixed;
 }
 
+.hover-scale{
+    @apply hover:scale-125 hover:transition-all transition duration-200 hover:duration-500 hover:ease-in-out hover:delay-100;
+}
+

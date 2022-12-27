@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
 import toast from 'react-hot-toast';
 
 const Context = createContext();
@@ -13,7 +13,7 @@ export const StateContext = ( { children } ) => {
         { id: "2", content: "Task 3", done: false, deleted: false }
     ]);
     
-    const [trashItems, setTrashItems] = useState([]);   
+    const [doneItems, setdoneItems] = useState([]);   
     
 
     const onAdd = ()=>{
@@ -48,16 +48,16 @@ export const StateContext = ( { children } ) => {
         }
       }
 
-      const onDelete = (item)=>{
-        const otherTasks = toDoList.filter((e)=> e.id !== item.id);
-        setToDoList(otherTasks);
-        toast.error(`Task "${item.content}" deleted!`);
-        setTrashItems([...trashItems, item]);
+      function doneAnimation(){
+        
       }
 
-      const onDone = (e)=>{
-        console.log(e);
-        alert("onDone");
+      const onDone = (item)=>{
+        const otherTasks = toDoList.filter((e)=> e.id !== item.id);
+        setToDoList(otherTasks);
+        toast.success(`Task "${item.content}" done!`);
+        setdoneItems([...doneItems, item]);
+        doneAnimation();
       }
     
     return(
@@ -68,8 +68,7 @@ export const StateContext = ( { children } ) => {
             setToDoList,
             onAdd,
             onDone,
-            onDelete,
-            trashItems
+            doneItems
         }}>
         {children}
         </Context.Provider>
