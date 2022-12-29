@@ -48,16 +48,21 @@ export const StateContext = ( { children } ) => {
         }
       }
 
-      function doneAnimation(){
+    //   function doneAnimation(){
         
-      }
+    //   }
 
       const onDone = (item)=>{
         const otherTasks = toDoList.filter((e)=> e.id !== item.id);
         setToDoList(otherTasks);
         toast.success(`Task "${item.content}" done!`);
         setdoneItems([...doneItems, item]);
-        doneAnimation();
+      }
+
+      const onDelete = (item)=>{
+        const otherTasks = toDoList.filter((e)=> e.id !== item.id);
+        setToDoList(otherTasks);
+        toast.error(`Task "${item.content}" deleted!`);
       }
     
     return(
@@ -68,6 +73,7 @@ export const StateContext = ( { children } ) => {
             setToDoList,
             onAdd,
             onDone,
+            onDelete,
             doneItems
         }}>
         {children}
