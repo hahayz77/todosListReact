@@ -16,14 +16,14 @@ function App() {
 		<SvgComponent comp={"done-signal"} />
 			<h1 className='font-bold text-6xl text-center mb-6 text-teal-700'>To Do's</h1>
 			<form action="#" onSubmit={(e)=>{ e.preventDefault() }}>
-				<div className="my-3 grid gap-x-4 grid-cols-12">
+				<div className="my-3 grid gap-x-2 grid-cols-12">
 					<div className='sm:col-span-9 col-span-12'>
 						<Input onKeyDown={(e)=>{e.code === "Enter" && onAdd()}} color="teal" label="Input Task" size="lg" value={inputValue}
 						onChange={(e)=>{inputChange(e.target.value)}}
 						/>
 					</div>
 					<div className='sm:col-span-3 col-span-12 place-self-center mt-3 sm:mt-0'>
-						<Button onClick={onAdd} className='inline-flex items-center py-0 font-black text-teal-800 lg:text-base text-sm bg-gradient-to-br from-[#50d18d] to-[#9dffce] hover:bg-gradient-to-bl hover:from-[#50d18d] hover:to-[#9dffce] hover-scale hover:scale-110' size="md" color='teal'>Send Task 
+						<Button onClick={onAdd} className='inline-flex items-center py-0 px-2 font-black text-teal-800 text-base bg-gradient-to-br from-[#50d18d] to-[#9dffce] hover:bg-gradient-to-bl hover:from-[#50d18d] hover:to-[#9dffce] hover-scale hover:scale-110' size="md" color='teal'>Send Task 
 						<SvgComponent comp={"plus-signal"}/>
 						</Button>
 					</div>
