@@ -23,7 +23,7 @@ function App() {
 						/>
 					</div>
 					<div className='col-span-3'>
-						<Button onClick={onAdd} className='inline-flex items-center py-0 font-black text-teal-500 text-base px-3 bg-gradient-to-l from-teal-100 to-white hover:bg-gradient-to-l hover:from-white hover:to-teal-100 hover-scale hover:scale-110' size="md" color='teal'>Send Task 
+						<Button onClick={onAdd} className='inline-flex items-center py-0 font-black text-teal-800 text-base px-3 bg-gradient-to-br from-[#50d18d] to-[#9dffce] hover:bg-gradient-to-bl hover:from-[#50d18d] hover:to-[#9dffce] hover-scale hover:scale-110' size="md" color='teal'>Send Task 
 						<SvgComponent comp={"plus-signal"}/>
 						</Button>
 					</div>
