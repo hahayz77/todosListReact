@@ -3,7 +3,7 @@ import {Button, Dialog, DialogHeader, DialogBody, DialogFooter} from "@material-
 import { useStateContext } from "../context/StateContext";
  
 export default function Example() {
-    const { doneItems } = useStateContext();
+    const { doneItems, setdoneItems } = useStateContext();
 
     const [open, setOpen] = useState(false);
  
@@ -17,6 +17,7 @@ export default function Example() {
         <Dialog open={open} handler={handleOpen}>
             <DialogHeader>Tasks Done!</DialogHeader>
             <DialogBody divider>
+                {doneItems.length === 0 && <div className="mx-auto"><br/><h1>Empty</h1><br/></div>}
                 <ul className='inline-flex flex-wrap'>
                 {doneItems.map((task, index)=>{
                     return(<li key={index} className='my-2 pl-3 text-teal-900 text-xs'> &#x2705; {task.content}</li>)
@@ -24,14 +25,8 @@ export default function Example() {
                 </ul>
             </DialogBody>
             <DialogFooter>
-            <Button
-                variant="text"
-                color="red"
-                onClick={handleOpen}
-                className="mr-1"
-            >
-                <span>Close</span>
-            </Button>
+                <Button variant="gradient" color="red" onClick={()=>{setdoneItems([])}} className="mr-1"><span>Clear</span></Button>
+                <Button variant="text" color="red" onClick={handleOpen} className="mr-1"><span>Close</span></Button>
             </DialogFooter>
         </Dialog>
         </Fragment>

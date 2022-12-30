@@ -74,7 +74,8 @@ export const StateContext = ( { children } ) => {
             onAdd,
             onDone,
             onDelete,
-            doneItems
+            doneItems,
+            setdoneItems
         }}>
         {children}
         </Context.Provider>
