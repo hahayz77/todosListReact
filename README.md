@@ -2,8 +2,8 @@
 
 ## :fire: Features
  - Delete, done and archive tasks
- - Responsive layout
- - CSS animations
+ - Tailwind CSS Responsive layout
+ - SVG animations with CSS
  - Local storage
   
  ## :bulb: Things that i've learned with this project 
