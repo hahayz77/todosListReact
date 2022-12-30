@@ -29,3 +29,7 @@ html{
 .done-animation{
     @apply scale-150;
 }
+
+li{
+    overflow-x: auto;
+}

@@ -11,19 +11,19 @@ function App() {
 	const { inputValue, inputChange, toDoList, onAdd } = useStateContext();
 
   	return (
-    <div className='mx-auto max-w-4xl mt-10 mb-8 py-6 rounded-3xl bg-opacity-90 bg-white'>
+    <div className='mx-auto mt-10 mb-8 py-6 rounded-3xl bg-opacity-90 bg-white lg:max-w-4xl lg:px-6 md:max-w-2xl md:px-4 min-w-xs px-6'>
 		<div className="flex flex-col justify-center max-w-3xl mx-auto">
 		<SvgComponent comp={"done-signal"} />
 			<h1 className='font-bold text-6xl text-center mb-6 text-teal-700'>To Do's</h1>
 			<form action="#" onSubmit={(e)=>{ e.preventDefault() }}>
 				<div className="my-3 grid gap-x-4 grid-cols-12">
-					<div className='col-span-9'>
+					<div className='sm:col-span-9 col-span-12'>
 						<Input onKeyDown={(e)=>{e.code === "Enter" && onAdd()}} color="teal" label="Input Task" size="lg" value={inputValue}
 						onChange={(e)=>{inputChange(e.target.value)}}
 						/>
 					</div>
-					<div className='col-span-3'>
-						<Button onClick={onAdd} className='inline-flex items-center py-0 font-black text-teal-800 text-base px-3 bg-gradient-to-br from-[#50d18d] to-[#9dffce] hover:bg-gradient-to-bl hover:from-[#50d18d] hover:to-[#9dffce] hover-scale hover:scale-110' size="md" color='teal'>Send Task 
+					<div className='sm:col-span-3 col-span-12 place-self-center mt-3 sm:mt-0'>
+						<Button onClick={onAdd} className='inline-flex items-center py-0 font-black text-teal-800 lg:text-base text-sm bg-gradient-to-br from-[#50d18d] to-[#9dffce] hover:bg-gradient-to-bl hover:from-[#50d18d] hover:to-[#9dffce] hover-scale hover:scale-110' size="md" color='teal'>Send Task 
 						<SvgComponent comp={"plus-signal"}/>
 						</Button>
 					</div>
