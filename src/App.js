@@ -11,7 +11,7 @@ function App() {
 	const { inputValue, inputChange, toDoList, onAdd } = useStateContext();
 
   	return (
-    <div className='mx-auto mt-10 mb-8 py-6 rounded-3xl bg-opacity-90 bg-white lg:max-w-4xl lg:px-6 md:max-w-2xl md:px-4 min-w-xs px-6'>
+    <div className='mx-auto mt-10 mb-8 py-6 rounded-3xl bg-opacity-90 bg-white lg:max-w-4xl lg:px-6 md:max-w-3xl min-w-xs px-6'>
 		<div className="flex flex-col justify-center max-w-3xl mx-auto">
 		<SvgComponent comp={"done-signal"} />
 			<h1 className='font-bold text-6xl text-center mb-6 text-teal-700'>To Do's</h1>

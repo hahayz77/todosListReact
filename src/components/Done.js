@@ -21,7 +21,7 @@ export default function Example() {
                 {doneItems.length === 0 && <div className="mx-auto"><br/><h1>Empty</h1><br/></div>}
                 <ul className='inline-flex flex-wrap'>
                 {doneItems.map((task, index)=>{
-                    return(<li key={index} className='my-2 pl-3 text-teal-900 text-xs'> &#x2705; {task.content}</li>)
+                    return(<li key={index} className='my-2 pl-0 sm:pl-3 text-teal-900 text-xs'> &#x2705; {task.content}</li>)
                     })}
                 </ul>
             </DialogBody>
