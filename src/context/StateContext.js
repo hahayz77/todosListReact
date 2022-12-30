@@ -6,6 +6,8 @@ const Context = createContext();
 export const StateContext = ( { children } ) => {
 
     const [inputValue, inputChange] = useState("");
+
+    const [doneAnimation, setdoneAnimation] = useState(false);
     
     const [toDoList, setToDoList] = useState(()=>{
         const initialState = localStorage.getItem("toDoList");
@@ -63,15 +65,13 @@ export const StateContext = ( { children } ) => {
         }
       }
 
-    //   function doneAnimation(){
-        
-    //   }
-
       const onDone = (item)=>{
         const otherTasks = toDoList.filter((e)=> e.id !== item.id);
         setToDoList(otherTasks);
         toast.success(`Task "${item.content}" done!`);
         setdoneItems([...doneItems, item]);
+        setdoneAnimation(true);
+        setTimeout(()=> {setdoneAnimation(false)}, 2000);
       }
 
       const onDelete = (item)=>{
@@ -90,7 +90,8 @@ export const StateContext = ( { children } ) => {
             onDone,
             onDelete,
             doneItems,
-            setdoneItems
+            setdoneItems,
+            doneAnimation
         }}>
         {children}
         </Context.Provider>
