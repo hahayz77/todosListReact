@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import toast from 'react-hot-toast';
 
 const Context = createContext();
@@ -7,13 +7,32 @@ export const StateContext = ( { children } ) => {
 
     const [inputValue, inputChange] = useState("");
     
-    const [toDoList, setToDoList] = useState([
-        { id: "0", content: "Task 1", done: false, deleted: false },
-        { id: "1", content: "Task 2", done: false, deleted: false },
-        { id: "2", content: "Task 3", done: false, deleted: false }
-    ]);
+    const [toDoList, setToDoList] = useState(()=>{
+        const initialState = localStorage.getItem("toDoList");
+        if(initialState){
+            return (JSON.parse(initialState));
+        }else{
+            return ([
+                { id: "0", content: "Task 1" },
+                { id: "1", content: "Task 2" },
+                { id: "2", content: "Task 3" }
+            ])
+        }
+    });
     
-    const [doneItems, setdoneItems] = useState([]);   
+    const [doneItems, setdoneItems] = useState(()=>{
+        const initialState = localStorage.getItem("doneItems");
+        if(initialState){
+            return (JSON.parse(initialState));
+        } else{
+            return([]);
+        }
+    });   
+
+    useEffect(()=>{
+        localStorage.setItem("toDoList", JSON.stringify(toDoList));
+        localStorage.setItem("doneItems", JSON.stringify(doneItems));
+    },[toDoList, doneItems]);
     
 
     const onAdd = ()=>{
@@ -28,9 +47,7 @@ export const StateContext = ( { children } ) => {
             
             const newItem = {
                 id: newId,
-                content: inputValue,
-                done: false,
-                deleted: false
+                content: inputValue
             }
             setToDoList([...toDoList, newItem]);
             inputChange("");
@@ -38,9 +55,7 @@ export const StateContext = ( { children } ) => {
         } else{
             const newItem = {
                 id: "0",
-                content: inputValue,
-                done: false,
-                deleted: false
+                content: inputValue
             }
             setToDoList([newItem]);
             inputChange("");
