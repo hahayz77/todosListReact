@@ -15,7 +15,7 @@ export default function Example() {
             <div onClick={handleOpen} className="relative mt-6 mb-3 cursor-pointer">
                 <SvgComponent comp={"done-tasks"}/>
             </div>
-        <Dialog open={open} handler={handleOpen}>
+        <Dialog open={open} handler={handleOpen} className="w-[90vh] max-w-[90vw] sm:mx-0">
             <DialogHeader>Tasks Done!</DialogHeader>
             <DialogBody divider>
                 {doneItems.length === 0 && <div className="mx-auto"><br/><h1>Empty</h1><br/></div>}
