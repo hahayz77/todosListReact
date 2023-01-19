@@ -37,8 +37,8 @@ function App() {
 				</div>
 				<Done/>
 		</section>
-			<footer className='absolute sm:bottom-0 bottom-[-30px] left-0 right-0 text-center text-[10px] hidden xs:block'>
-					<p>Maded by HaHay. Ver 130123. Copyrights 2023</p>
+			<footer className='fixed opacity-40 sm:bottom-0 bottom-[-30px] left-0 right-0 text-center text-[10px] hidden xs:block'>
+					<p>Maded by github.com/hahayz77 © 2023</p>
 			</footer>
 	</main>
   );

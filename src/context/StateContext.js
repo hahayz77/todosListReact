@@ -39,7 +39,7 @@ export const StateContext = ( { children } ) => {
 
     const onAdd = ()=>{
         if(inputValue === ""){
-            toast.error("You cannot add a empty task!");
+            toast.error("You cannot add a empty task!", {position: "bottom-center"});
             return;
         }
 
@@ -53,7 +53,7 @@ export const StateContext = ( { children } ) => {
             }
             setToDoList([...toDoList, newItem]);
             inputChange("");
-            toast.success('Task added to the queue');
+            toast.success('Task added to the queue', {position: "bottom-center"});
         } else{
             const newItem = {
                 id: "0",
@@ -61,14 +61,14 @@ export const StateContext = ( { children } ) => {
             }
             setToDoList([newItem]);
             inputChange("");
-            toast.success('Task added to the queue');
+            toast.success('Task added to the queue', {position: "bottom-center"});
         }
       }
 
       const onDone = (item)=>{
         const otherTasks = toDoList.filter((e)=> e.id !== item.id);
         setToDoList(otherTasks);
-        toast.success(`Task "${item.content}" done!`);
+        toast.success(`Task "${item.content}" done!`, {position: "bottom-center"});
         setdoneItems([...doneItems, item]);
         setdoneAnimation(true);
         setTimeout(()=> {setdoneAnimation(false)}, 2000);
@@ -77,7 +77,7 @@ export const StateContext = ( { children } ) => {
       const onDelete = (item)=>{
         const otherTasks = toDoList.filter((e)=> e.id !== item.id);
         setToDoList(otherTasks);
-        toast.error(`Task "${item.content}" deleted!`);
+        toast.error(`Task "${item.content}" deleted!`, {position: "bottom-center"});
       }
     
     return(
